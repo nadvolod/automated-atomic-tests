@@ -13,7 +13,9 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CookieTest {
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
+public class SauceDemoSolution {
     private WebDriver driver;
 
     @BeforeEach
@@ -25,7 +27,11 @@ public class CookieTest {
     }
 
     @Test
-    public void cookieLogin() throws InterruptedException {
+    public void homePageShouldRender() {
+
+        /*
+        * Application state setup
+        * */
         String username = "standard_user";
         String desiredFinalPath = "https://www.saucedemo.com/inventory.html";
         String userCookies = "document.cookie='session-username=" + username + "';";
@@ -44,19 +50,20 @@ public class CookieTest {
         }
         // Now go to the page
         driver.get(desiredFinalPath);
-        // only for demo
-        Thread.sleep(5000);
 
+        /*
+         * The actual test
+         * */
         // throws a nice exception
         new WebDriverWait(driver, Duration.ofSeconds(6)).until(d -> d.findElement(By.id("inventory_container")));
     }
 
     @Test
-    public void seedingData() {
+    public void checkoutShouldWork() {
         String username = "standard_user";
         List<String> products = new ArrayList<>();
         products.add("0");
-        String desiredFinalPath = "https://www.saucedemo.com/inventory.html";
+        String desiredFinalPath = "https://www.saucedemo.com/checkout-step-two.html";
         String userCookies = "document.cookie='session-username=" + username + "';";
         String productStorage = !products.isEmpty() ? "localStorage.setItem('cart-contents', '[" + String.join(",", products) + "]');" : "";
 
@@ -75,9 +82,16 @@ public class CookieTest {
         // Now go to the page
         driver.get(desiredFinalPath);
         // throws a nice exception
-        new WebDriverWait(driver, Duration.ofSeconds(6)).until(d -> d.findElement(By.id("inventory_container")));
+        new WebDriverWait(driver, Duration.ofSeconds(6)).until(d -> d.findElement(By.id("checkout_summary_container")));
+        Assertions.assertEquals(1, getItemCount(), "Should have 1 item in the cart");
 
-        Assertions.assertEquals(1, getItemCount());
+        /*
+         * The actual test
+         * */
+        WebElement finishButton = new WebDriverWait(driver, Duration.ofSeconds(6)).until(d -> d.findElement(By.cssSelector("[data-test='finish']")));
+        finishButton.click();
+
+        assertDoesNotThrow(this::isCheckoutComplete);
     }
     public int getItemCount() {
         WebElement itemCounter;
@@ -89,6 +103,9 @@ public class CookieTest {
         {
             return 0;
         }
+    }
+    public void isCheckoutComplete() {
+        new WebDriverWait(driver, Duration.ofSeconds(6)).until(d -> d.findElement(By.id("checkout_complete_container")));
     }
     @AfterEach
     public void tearDown() {
