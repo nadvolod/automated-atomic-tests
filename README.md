@@ -17,6 +17,23 @@ Furthermore, AATs meet several requirements of good tests as specified by Kent B
 
 As an aside, this concept is already well understood in unit and integration tests, but UI tests continue to lag behind.
 
+## Your Instructor: Nikolay Advolodkin
+
+<img src="public/images/family.jpg" alt="api-testing" width="500"/>
+
+- 🏢 I’m a Sr Solutions Architect at Sauce Labs
+- 🔭 I’m the founder of [Ultimate QA](https://ultimateqa.com/) and [UltimateQA Academy](https://academy.ultimateqa.com/java-sdet-career)
+- 🌱 I’m currently working on [UltimateQA Academy](https://academy.ultimateqa.com/java-sdet-career)
+- 💬 Ask me about environmentalism, veganism, test automation, and fitness
+- 😄 Pronouns: he/him
+- ⚡ Fun fact: I love to be outdoors and active. I enjoy roller skating, biking, walking. I also enjoy weight lifting.
+- 📫 Follow me for testing and dev training
+    - [🎓Java SDET Bootcamp](https://academy.ultimateqa.com/java-sdet-career)
+    - [📩Test Java like the best](https://ultimateqa.ck.page/selenium-java-tips)
+    - [Testing training on YouTube](https://youtube.com/ultimateqa)
+    - [LinkedIn for professional connections](https://www.linkedin.com/in/nikolayadvolodkin/)
+    - [Twitter](https://twitter.com/Nikolay_A00)
+
 ### ❓Is this test atomic❓
 
 ```java
@@ -48,7 +65,6 @@ public void shouldAddItemToCart() {
         // Use assertions to verify the result
         Assertions.assertEquals(1, getItemsInCart(), "Item count in the cart is not as expected!");
         }
-
 ```
 
 ---
@@ -98,12 +114,49 @@ Or a bit more useful but complicated, a login without filling out forms
     })
 ```
 
+## Key
 
-### Let's take a look at some examples
+💡 this is a tip
 
-<img width="500" height="300" alt="look" src="https://media.giphy.com/media/Fu9EXNUgJBRBe/giphy.gif">
+🏋️‍♀️ this is an exercise for you to do
 
-## Examples
+❓ this is a question for us to think and talk about. Try not to scroll beyond this question before we discuss
+
+## Rules of engagement
+
+<img src="https://media.giphy.com/media/CB26wRVi3B9T2/giphy.gif" alt="api-testing" width="500"/>
+
+- I'm here to Serve You, your education, and your experience
+- Be kind, respectful, no judgment
+- Have fun
+
+## Automated Atomic Tests
+
+### App 1
+
+✅ https://www.saucedemo.com/
+
+✅ Let's explore the app
+
+✅ Understand login with Cookie
+
+✅ Understand how to seed data / set app state
+
+🏋️‍♀️ Perform exercise in SauceDemoExercise
+
+### App 2
+
+✅ https://thinking-tester-contact-list.herokuapp.com/
+
+✅ Let's explore the app
+
+✅ Understand Registration with an API
+
+✅ Understand how to set JWT
+
+🏋️‍♀️ Perform exercise in SauceDemoExercise
+
+## More Examples
 
 [Cypress examples repo](https://github.com/cypress-io/cypress-example-recipes/tree/master/examples) has a bunch of useful information. We are focused on a few examples.
 
@@ -113,4 +166,7 @@ Or a bit more useful but complicated, a login without filling out forms
 
 ## Bonus Resources
 
-I created [this blog post](https://snip.ly/qt49hg) with a lot more great resources to help you learn this topic.
+- If you want to learn test automation from scratch or have friends that want to become SDETs, 
+check out [UltimateQA Academy](https://academy.ultimateqa.com/java-sdet-career)
+
+- [this blog post](https://snip.ly/qt49hg) with a lot more great resources to help you learn this topic.

@@ -5,7 +5,6 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,15 +13,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.*;
 
-import io.restassured.RestAssured.*;
-import io.restassured.matcher.RestAssuredMatchers.*;
-import org.hamcrest.Matchers.*;
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ContactListAppSolution {
+public class ContactListAppAPISolution {
 
     private static String password;
     // Our web app https://thinking-tester-contact-list.herokuapp.com
@@ -84,50 +79,5 @@ public class ContactListAppSolution {
                 .body("user.email", equalTo(uniqueEmail)) // Assert that the email in the response is the uniqueEmail
                 .extract()
                 .response();
-    }
-
-    @Test
-    void userCanLogin() {
-        ChromeOptions options = new ChromeOptions();
-        // mandatory to work with Java 11 +
-        options.addArguments("--remote-allow-origins=*");
-        driver = new ChromeDriver(options);
-
-        driver.navigate().to("https://thinking-tester-contact-list.herokuapp.com/");
-
-        // First wait should be explicit to allow for extra rendering time
-        WebElement emailInput = new WebDriverWait(driver,
-                Duration.ofSeconds(6)).until(d -> d.findElement(By.cssSelector("#email")));
-        emailInput.sendKeys(uniqueEmail);
-
-        // Next locators can be implicit
-        driver.findElement(By.cssSelector("#password")).sendKeys(password);
-        driver.findElement(By.cssSelector("#submit")).click();
-
-    }
-
-    @Test
-    void unregisteredUserCantLogin() {
-        ChromeOptions options = new ChromeOptions();
-        // mandatory to work with Java 11 +
-        options.addArguments("--remote-allow-origins=*");
-        driver = new ChromeDriver(options);
-
-        driver.navigate().to("https://thinking-tester-contact-list.herokuapp.com/");
-
-        // First wait should be explicit to allow for extra rendering time
-        WebElement emailInput = new WebDriverWait(driver, Duration.ofSeconds(6))
-                .until(ExpectedConditions.elementToBeClickable(By.cssSelector("#email")));
-        emailInput.sendKeys(uniqueEmail);
-
-        // Next locators can be implicit
-        driver.findElement(By.cssSelector("#password")).sendKeys(password);
-        driver.findElement(By.cssSelector("#submit")).click();
-
-        // It's smart to wait for our element before asserting
-        WebElement errorMessage = new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(By.cssSelector("#error")));
-
-        assertEquals("Incorrect username or password", errorMessage.getText(), "Should display error message for unregistered user");
     }
 }
