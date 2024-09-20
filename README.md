@@ -19,20 +19,16 @@ As an aside, this concept is already well understood in unit and integration tes
 
 ## Your Instructor: Nikolay Advolodkin
 
-<img src="public/images/family.jpg" alt="api-testing" width="500"/>
-
-- 🏢 I’m a Sr Solutions Architect at Sauce Labs
-- 🔭 I’m the founder of [Ultimate QA](https://ultimateqa.com/) and [UltimateQA Academy](https://academy.ultimateqa.com/java-sdet-career)
-- 🌱 I’m currently working on [UltimateQA Academy](https://academy.ultimateqa.com/java-sdet-career)
+- 🏢 I’m a Staff Developer Advocate at Sauce Labs
+- 🔭 I’m the founder of [Ultimate QA](https://ultimateqa.com/)
 - 💬 Ask me about environmentalism, veganism, test automation, and fitness
 - 😄 Pronouns: he/him
 - ⚡ Fun fact: I love to be outdoors and active. I enjoy roller skating, biking, walking. I also enjoy weight lifting.
 - 📫 Follow me for testing and dev training
-    - [🎓Java SDET Bootcamp](https://academy.ultimateqa.com/java-sdet-career)
     - [📩Test Java like the best](https://ultimateqa.ck.page/selenium-java-tips)
-    - [Testing training on YouTube](https://youtube.com/ultimateqa)
+    - [Test Automation Experience Show](https://youtube.com/@test-automation-experience)
     - [LinkedIn for professional connections](https://www.linkedin.com/in/nikolayadvolodkin/)
-    - [Twitter](https://twitter.com/Nikolay_A00)
+    - [X](https://twitter.com/Nikolay_A00)
 
 ### ❓Is this test atomic❓
 
@@ -165,8 +161,5 @@ Or a bit more useful but complicated, a login without filling out forms
 [JWT](https://github.com/cypress-io/cypress-example-recipes/blob/master/examples/logging-in__jwt)
 
 ## Bonus Resources
-
-- If you want to learn test automation from scratch or have friends that want to become SDETs, 
-check out [UltimateQA Academy](https://academy.ultimateqa.com/java-sdet-career)
 
 - [this blog post](https://snip.ly/qt49hg) with a lot more great resources to help you learn this topic.

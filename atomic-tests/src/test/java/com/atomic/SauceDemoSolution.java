@@ -14,12 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SauceDemoSolution {
     private WebDriver driver;
 
     @BeforeEach
     public void setUp() {
+        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         // mandatory to work with Java 11 +
         options.addArguments("--remote-allow-origins=*");
@@ -27,7 +29,7 @@ public class SauceDemoSolution {
     }
 
     @Test
-    public void homePageShouldRender() {
+    public void inventoryPageRenders() {
 
         /*
         * Application state setup
@@ -59,7 +61,7 @@ public class SauceDemoSolution {
     }
 
     @Test
-    public void checkoutShouldWork() {
+    public void userCanCheckout() {
         String username = "standard_user";
         List<String> products = new ArrayList<>();
         products.add("0");
